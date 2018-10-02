@@ -1,16 +1,27 @@
 { 
 	"timeline":
 	{
-		"headline":"Web 1.0",
+		"headline":"History of the server-side web technology",
 		"type":"default",
-		"startDate":"1989",
-		"text": "only static HTML pages served by web server",
+		"startDate":"1988",
+		"text": "",
 		"asset": {
-			"media":"https://i.amz.mshcdn.com/QRdCmizTaDSz6DIkgd0exZ863Bg=/fit-in/1200x9600/http%3A%2F%2Fmashable.com%2Fwp-content%2Fuploads%2F2013%2F07%2FAltaVista-Technology.png",
+			"media":"",
 			"credit":"",
 			"caption":""
 		},
 		"date": [
+            {
+                "startDate":"1989",
+                "headline":"Web 1.0",
+                "text":"This time was only static HTML pages served by web server",
+                "asset":
+                {
+                    "media":"https://i.amz.mshcdn.com/QRdCmizTaDSz6DIkgd0exZ863Bg=/fit-in/1200x9600/http%3A%2F%2Fmashable.com%2Fwp-content%2Fuploads%2F2013%2F07%2FAltaVista-Technology.png",
+                    "credit":"",
+                    "caption":""
+                }
+            },
             {
                 "startDate":"1993",
                 "headline":"Common Gateway Interface 1.0",
@@ -80,7 +91,7 @@
             {
                 "startDate":"2004",
                 "headline":"Ruby on Rails 1.0",
-                "text":"Rails is a model–view–controller (MVC) framework, written in Ruby. Active version 5.2",
+                "text":"Rails is a (MVC) framework, written in Ruby. Active version 5.2",
                 "asset":
                 {
                     "media":"https://cdn.wccftech.com/wp-content/uploads/2017/04/Ruby-on-Rails.png",
@@ -100,13 +111,13 @@
                 }
             },
             {
-                "startDate":"2005",
+                "startDate":"2009",
                 "headline":"Nodejs 1.0",
-                "text":"Django is a free and open-source web framework, written in Python, which follows the model-view-template (MVT) architectural pattern. Active version 2.1",
+                "text":" is an open-source, cross-platform JavaScript run-time environment that executes JavaScript code outside of a browser at server-side. Active version 10.11",
                 "asset":
                 {
-                    "media":"https://cs.pikabu.ru/post_img/big/2013/03/29/12/1364584238_234250829.jpg",
-                    "credit":"Adrian Holovaty, Simon Willison",
+                    "media":"https://www.improgrammer.net/wp-content/uploads/2015/11/Best-Nodejs-Jokes-696x418.jpg",
+                    "credit":"Ryan Dahl",
                     "caption":""
                 }
             }

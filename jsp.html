@@ -41,7 +41,7 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Java Servlet Pages</h1>
+					<h1><span class="fragment highlight-green">J</span>ava <span class="fragment highlight-green">S</span>ervlet <span class="fragment highlight-green">P</span>ages</h1>
 					<h3>Tutorial</h3>
 					<p>
 						<small>Created by Zoltán Holoda</small>
@@ -49,104 +49,139 @@
 				</section>
 
 				<section>
-					<h3>History of the server-side web technology</h3>
 					<div data-timeline="web2-history.json"></div>
 				</section>
 
-				<!-- Example of nested vertical slides -->
 				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
+					<h2>Java Servlet</h2>
+					<p><span class="fragment">java programs</span></p>
+                    <p><span class="fragment">run on a Web or Application server</span></p>
+                    <p><span class="fragment">middle layer between</span> <span class="fragment">browser and application</span></p>
+                    <p><span class="fragment">communicate over any client–server protocol, HTTP</span></p>
+                    <p><span class="fragment">content is HTML</span> <span class="fragment">XML</span> <span class="fragment">JSON</span></p>
 				</section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="https://slides.com" target="_blank">https://slides.com</a>.
-					</p>
+                <section>
+					<h2>Servlet API</h2>
+					<small><ul>
+						<p>javax.servlet package interface</p>
+						<li>Servlet</li>
+						<li>ServletRequest</li>
+						<li>ServletResponse</li>
+                        <li>RequestDispatcher</li>
+                        <li>ServletConfig</li>
+                        <li>ServletContext</li>
+                        <li>Filter</li>
+					</ul>
+                    <ul>
+						<p>javax.servlet.http package interface</p>
+						<li>HttpServletRequest</li>
+						<li>HttpServletResponse</li>
+						<li>HttpSession</li>
+ 					</ul></small>
 				</section>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
+                <section>
+    				<h2>Servlet Lifecycle</h2>
+                    <p><span class="fragment">init() - </span><span class="fragment">initialized only once</span></p>
+                    <p><span class="fragment">service() - </span><span class="fragment">handle requests as new thread, HTTP request >> doXXX(), process request, write response</span></p>
+                    <p><span class="fragment">destroy() - </span><span class="fragment">terminated only once</span></p>
 				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
+                
+                <section>
+					<h2>State handling</h2>
+                    <p><span class="fragment">HTTP stateless - always separate connection</span></p>
+                      <ul>
+						<span class="fragment"><li>Cookie - unique session ID assign to client</li></span>
+                        <span class="fragment"><pre><code class="hljs" style="word-wrap: break-word;">Cookie: user=1fsdfsdfsd654f123sdfs</code></pre></span>
+						<span class="fragment"><li>Hidden Form Fields - hidden HTML form field along with a unique session ID</li></span>
+                        <span class="fragment"><pre><code class="hljs" style="word-wrap: break-word;"><input type = "hidden" name = "sessionid" value = "12345"></code></pre></span>
+						<span class="fragment"><li>URL Rewriting - extra data on the end of each URL</li></span>
+                        <span class="fragment"><pre><code class="hljs" style="word-wrap: break-word;">url?name1=value1&name2=value2</code></pre></span>
+					</ul>
 				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
+                
+                <section>
+					<h2>Scope</h2>
+                      <ul>
+						<span class="fragment"><li>Request - live only inside service(), 'request' implicit object</li></span>
+                        <span class="fragment"><li>Session - client connection time, 'session' implicit object</li></span>
+                        <span class="fragment"><li>Application or context - available everywhere, one per web application per jvm, 'application' implicit object</li></span>
+					</ul>
 				</section>
+                
+                <section>
+                    <section>
+					    <h2>Deployment</h2>
+                        <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+WEB-INF
+|-web.xml
+|-lib
+|-classes
+					             </code></pre></span>
+                        <p><span class="fragment">zip as <span class="fragment highlight-green">w</span>eb <span class="fragment highlight-green">ar</span>chive package</span></p>
+				    </section>
+                    <section>
+                        <h2>Deployment descriptor</h2>
+                        <p><span class="fragment">web.xml</span></p>
+                        <p><span class="fragment">map servlet to url, </span><span class="fragment">configure container, </span><span class="fragment">filter, </span></p>
+                        <p><span class="fragment">error handling, </span><span class="fragment">security</span></p>
+                        <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+<servlet>
+    <servlet-name>redteam</servlet-name>
+    <servlet-class>com.redteam.Servlet</servlet-class>
+</servlet>
 
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p>
-							<span style="display: inline-block;" class="fragment fade-right">fade-right, </span>
-							<span style="display: inline-block;" class="fragment fade-up">up, </span>
-							<span style="display: inline-block;" class="fragment fade-down">down, </span>
-							<span style="display: inline-block;" class="fragment fade-left">left</span>
-						</p>
-						<p class="fragment fade-in-then-out">fade-in-then-out</p>
-						<p class="fragment fade-in-then-semi-out">fade-in-then-semi-out</p>
-						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
-					</section>
+<servlet-mapping>
+    <servlet-name>redteam</servlet-name>
+    <url-pattern>/red/*</url-pattern>
+</servlet-mapping>
+					             </code></pre></span>
+                    </section>
+                </section>
+                
+                <section>
+					<h2>History</h2>
+                    <small>
+                    <table class="wikitable">
+<tbody><tr>
+<th>Servlet API version</th>
+<th>Released</th>
+<th>Specification</th>
+<th>Platform</th>
+<th>Important Changes
+</th></tr>
+<tr>
+<td>Servlet 4.0</td>
+<td>Sep 2017</td>
+<td><a rel="nofollow" class="external text" href="https://jcp.org/en/jsr/detail?id=369">JSR 369</a></td>
+<td>Java EE 8</td>
+<td><a href="/wiki/HTTP/2" title="HTTP/2">HTTP/2</a>
+</td></tr>
+<tr>
+<td>Servlet 3.1</td>
+<td>May 2013</td>
+<td><a rel="nofollow" class="external text" href="https://jcp.org/en/jsr/detail?id=340">JSR 340</a></td>
+<td>Java EE 7</td>
+<td>Non-blocking I/O, HTTP protocol upgrade mechanism (<a href="/wiki/WebSocket" title="WebSocket">WebSocket</a>)
+</td></tr>
+<tr>
+<td>Servlet 3.0</td>
+<td><a rel="nofollow" class="external text" href="http://www.javaworld.com/javaworld/jw-02-2009/jw-02-servlet3.html">December 2009</a></td>
+<td><a rel="nofollow" class="external text" href="https://jcp.org/en/jsr/detail?id=315">JSR 315</a></td>
+<td>Java EE 6, Java SE 6</td>
+<td>Pluggability, Ease of development, Async Servlet, Security, File Uploading
+</td></tr>
+<tr>
+<td>Servlet 2.5</td>
+<td><a rel="nofollow" class="external text" href="http://www.javaworld.com/javaworld/jw-01-2006/jw-0102-servlet.html">September 2005</a></td>
+<td>JSR 154</td>
+<td>Java EE 5, Java SE 5</td>
+<td>Requires Java SE 5, supports annotation
+</td></tr></tbody></table>
+</small>
 				</section>
 
 				<section id="transitions">
