@@ -58,7 +58,14 @@
                     <p><span class="fragment">run on a Web or Application server</span></p>
                     <p><span class="fragment">middle layer between</span> <span class="fragment">browser and application</span></p>
                     <p><span class="fragment">communicate over any client–server protocol, HTTP</span></p>
-                    <p><span class="fragment">content is HTML</span> <span class="fragment">XML</span> <span class="fragment">JSON</span></p>
+                    <p><span class="fragment">content is HTML, </span> <span class="fragment">XML, </span> <span class="fragment">JSON</span></p>
+				</section>
+
+                <section>
+    				<h2>Servlet Lifecycle</h2>
+                    <p><span class="fragment">init() - </span><span class="fragment">initialized only once</span></p>
+                    <p><span class="fragment">service() - </span><span class="fragment">handle requests as new thread, HTTP request >> doXXX(), process request, write response</span></p>
+                    <p><span class="fragment">destroy() - </span><span class="fragment">terminated only once</span></p>
 				</section>
 
                 <section>
@@ -82,13 +89,6 @@
 				</section>
 
                 <section>
-    				<h2>Servlet Lifecycle</h2>
-                    <p><span class="fragment">init() - </span><span class="fragment">initialized only once</span></p>
-                    <p><span class="fragment">service() - </span><span class="fragment">handle requests as new thread, HTTP request >> doXXX(), process request, write response</span></p>
-                    <p><span class="fragment">destroy() - </span><span class="fragment">terminated only once</span></p>
-				</section>
-                
-                <section>
 					<h2>State handling</h2>
                     <p><span class="fragment">HTTP stateless - always separate connection</span></p>
                       <ul>
@@ -104,9 +104,9 @@
                 <section>
 					<h2>Scope</h2>
                       <ul>
-						<span class="fragment"><li>Request - live only inside service(), 'request' implicit object</li></span>
-                        <span class="fragment"><li>Session - client connection time, 'session' implicit object</li></span>
-                        <span class="fragment"><li>Application or context - available everywhere, one per web application per jvm, 'application' implicit object</li></span>
+						<span class="fragment"><li>Request - live only inside service()</li></span>
+                        <span class="fragment"><li>Session - client connection timet</li></span>
+                        <span class="fragment"><li>Application or context - available everywhere, one per web application per jvm</li></span>
 					</ul>
 				</section>
                 
@@ -115,16 +115,18 @@
 					    <h2>Deployment</h2>
                         <span class="fragment">
                             <pre><code class="hljs" data-trim contenteditable>
-WEB-INF
-|-web.xml
-|-lib
-|-classes
+webapp
+|-WEB-INF
+|   |-web.xml
+|   |-lib
+|   |-classes
+|-static                          
 					             </code></pre></span>
                         <p><span class="fragment">zip as <span class="fragment highlight-green">w</span>eb <span class="fragment highlight-green">ar</span>chive package</span></p>
 				    </section>
                     <section>
                         <h2>Deployment descriptor</h2>
-                        <p><span class="fragment">web.xml</span></p>
+                        <p><span class="fragment">web.xml or annotation</span></p>
                         <p><span class="fragment">map servlet to url, </span><span class="fragment">configure container, </span><span class="fragment">filter, </span></p>
                         <p><span class="fragment">error handling, </span><span class="fragment">security</span></p>
                         <span class="fragment">
@@ -184,232 +186,435 @@ WEB-INF
 </small>
 				</section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
+                <section>
+					<h2>Java Server Pages</h2>
+					<p><span class="fragment">need for no java expert code web</span><span class="fragment"> -> answer JSP</span></p>
+                    <p><span class="fragment">type of Java servlet</span></p>
+                    <p><span class="fragment">run on a Web or Application server</span></p>
+                    <p><span class="fragment">communicate over any client–server protocol, HTTP</span></p>
+                    <p><span class="fragment">content is HTML, </span> <span class="fragment">XML, </span> <span class="fragment">JSON, </span> <span class="fragment">JSP element, </span> <span class="fragment">js</span></p>
+				</section>
+                
+                <section>
+					<h2>Model 1 vs Model 2</h2>
+                    <small>
+    	                <span class="fragment">
+						    <figure>
+                                <img data-src="https://herbertograca.files.wordpress.com/2018/08/beans.jpg" alt="model1">
+                                <figcaption>Model 1 - only presentation purposes</figcaption>
+                            </figure>
+                        </span>
+                        <span class="fragment">
+                            <figure>
+	        				    <img data-src="https://herbertograca.files.wordpress.com/2018/08/scenario2.jpg" alt="model2">
+                                <figcaption>Model 2 - separation components like MVC pattern </figcaption>
+                            </figure>
+                        </span>
+                    </small>
 				</section>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+                <section>
+					<h2>Architecture</h2>
+    					<a href="#">
+							<img data-src="https://www.javatpoint.com/images/jspflow.JPG" alt="jsp architecture">
 						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
 				</section>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+                <section>
+    				<h2>Lifecycle</h2>
+                    <p><span class="fragment">jspInit() - same as servlet init()</span></p>
+                    <p><span class="fragment">_jspService() - same as servlet service()</span><span class="fragment"> no override</span></p>
+                    <p><span class="fragment">jspDestroy() - same as servlet destroy()</span></p>
 				</section>
 
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
+                <section>
+					<h2>Scope</h2>
+                     <ul>
+						<span class="fragment"><li>Request, Session, Application same as servlet</li></span>
+                        <span class="fragment"><span class="fragment highlight-red"><li>Page - restrict lifetime of attributes to the same page where it was created, 'pageScope' implicit object</li></span></span>
 					</ul>
-				</section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+                    <span class="fragment">remove attributes from every scope<pre><code class="hljs" style="word-wrap: break-word;">pageContext.removeAttribute ("attrName")</code></pre></span>
+                    <span class="fragment">remove attributes from page scope<pre><code class="hljs" style="word-wrap: break-word;">pageContext.removeAttribute("attrName", PAGE_SCOPE);</code></pre></span>
+ 				</section>
 
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
-				</section>
+                <section>
+                    <h2>Implicit objects</h2>
+                    <ul>
+                        <li class="fragment">request - HttpServletRequest object</li>
+                        <li class="fragment">response - HttpServletResponse object</li>
+                        <li class="fragment">out - PrintWriter object send to the client</li>
+                        <li class="fragment">session - HttpSession object</li>
+                        <li class="fragment">application - ServletContext object</li>
+                        <li class="fragment">config - ServletConfig object associated with the page</li>
+                        <li class="fragment">pageContext - define xml element's attribute</li>
+                        <li class="fragment">page - this</li>
+                        <li class="fragment">exception - access to exception data</li>
+                    </ul>
+                </section>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
+                <section>
+					<h2>Scriplet</h2>
+                    <p><span class="fragment">java language statements, variable, method declarations or expressions</span></p>
+                    <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><% code fragment %></code></pre></span>
+ 				</section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+                <section>
+					<h2>Declaration</h2>
+                    <p><span class="fragment">declares java variables or methods</span></p>
+                    <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><%! declaration; [ declaration; ]+ ... %></code></pre></span>
+ 				</section>
 
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
-
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+                <section>
+					<h2>Expression</h2>
+                    <p><span class="fragment">a scripting language expression evaluated, converted to a String, inserted where the expression appears in the JSP file</span></p>
+                    <span class="fragment">syntax - no semicolon<pre><code class="hljs" style="word-wrap: break-word;"><%= expression %></code></pre></span>
+ 				</section>
+                
+                <section>
+					<h2>Comment</h2>
+                    <p><span class="fragment">marks text or statements that the JSP container should ignore</span></p>
+                    <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><%-- This is JSP comment --%></code></pre></span>
+ 				</section>
+                
+                <section>
+					<h2>Directive</h2>
+                    <p><span class="fragment">provide directions and instructions to the container</span></p>
+                    <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><%@ directive attribute = "value" %></code></pre></span>
+                    
+                    <ul>
+						<span class="fragment"><li>page - instructions about current JSP page, import, buffer, error, ...</li></span>
+                        <span class="fragment"><li>import - include a file during the translation phase</li></span>
+                        <span class="fragment"><li>taglib - uses a set of custom tags</li></span>
 					</ul>
+ 				</section>
+                
+                <section>
+                    <section>
+                        <h2>Action</h2>
+                        <p><span class="fragment">control the behavior of the servlet engine</span></p>
+                        <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><jsp:action_name attribute = "value" /></code></pre></span>
+                    </section>
+                    <section>
+                        <ul>
+                            <li class="fragment">jsp:include - includes a file at runtime</li>
+                            <li class="fragment">jsp:useBean - finds or instantiates a JavaBean</li>
+                            <li class="fragment">jsp:setProperty - sets the property of a JavaBean</li>
+                            <li class="fragment">jsp:getProperty - append the property of a JavaBean to out</li>
+                            <li class="fragment">jsp:forward - forwards the requester to a new page</li>
+                            <li class="fragment">jsp:element - define xml element</li>
+                            <li class="fragment">jsp:attribute - define xml element's attribute</li>
+                            <li class="fragment">jsp:body - define xml element's body</li>
+                            <li class="fragment">jsp:text - write template text</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Standard Tag Library (JSTL)</h2>
+                        <p><span class="fragment">collection of useful JSP tags, encapsulates the core functionality common to many JSP applications</span></p>
+                    </section>
+                    <section>
+                        <h2>Core Tags</h2>
+                        <p><span class="fragment">collect most commonly used JSTL tags</span></p>
+                        <small>
+                            <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %></code></pre></span>
+                            <ul>
+                                <li class="fragment">&lt;c:out&gt; - write it to out</li>
+                                <li class="fragment">&lt;c:set&gt; - sets the result of an expression evaluation in a 'scope'</li>
+                                <li class="fragment">&lt;c:remove&gt; - removes a scoped variable</li>
+                                <li class="fragment">&lt;c:if&gt; - conditional</li>
+                                <li class="fragment">&lt;c:import&gt; - retrieves url</li>
+                                <li class="fragment">&lt;c:forEach&gt; - iteration</li>
+                                <li class="fragment">&lt;c:redirect&gt; - redirect to url</li>
+                            </ul>
+                        </small>
+                    </section>
+                    <section>
+                        <h2>Formatting Tags</h2>
+                        <p><span class="fragment">to format and display text, the date, the time, and numbers for internationalized web</span></p>
+                        <small>
+                            <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %></code></pre></span>
+                            <ul>
+                                <li class="fragment">&lt;fmt:formatNumber&gt; - format number</li>
+                                <li class="fragment">&lt;fmt:parseNumber&gt; - parse number from string</li>
+                                <li class="fragment">&lt;fmt:timeZone&gt; - specify time zone</li>
+                                <li class="fragment">&lt;fmt:setLocale&gt; - store locale</li>
+                                <li class="fragment">&lt;fmt:requestEncoding&gt; - encode message</li>
+                            </ul>
+                        </small>
+                    </section>
+                    <section>
+                        <h2>SQL Tags</h2>
+                        <p><span class="fragment">interacting with relational databases</span></p>
+                        <small>
+                            <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><%@ taglib prefix = "sql" uri = "http://java.sun.com/jsp/jstl/sql" %></code></pre></span>
+                            <ul>
+                                <li class="fragment">&lt;sql:setDataSource&gt; - define datasource</li>
+                                <li class="fragment">&lt;sql:query&gt; - run a query</li>
+                                <li class="fragment">&lt;sql:update&gt; - alter</li>
+                                <li class="fragment">&lt;sql:transaction&gt; - transaction</li>
+                            </ul>
+                        </small>
+                    </section>
+                    <section>
+                        <h2>XML Tags</h2>
+                        <p><span class="fragment">creating and manipulating the XML documents</span></p>
+                        <small>
+                            <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><%@ taglib prefix = "x" uri = "http://java.sun.com/jsp/jstl/xml" %></code></pre></span>
+                            <ul>
+                                <li class="fragment">&lt;x:out&gt; - write it to out</li>
+                                <li class="fragment">&lt;x:parse&gt; - parse string</li>
+                                <li class="fragment">&lt;x:if&gt; - conditional</li>
+                                <li class="fragment">&lt;x:transform&gt; - xslt</li>
+                            </ul>
+                        </small>
+                    </section>
+                    <section>
+                        <h2>JSTL Functions</h2>
+                        <p><span class="fragment">number of standard functions, string manipulation</span></p>
+                        <small>
+                            <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;"><%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %></code></pre></span>
+                            <ul>
+                                <li class="fragment">&lt;fn:contains&gt; - text contains</li>
+                                <li class="fragment">&lt;fn:lenght&gt; - text length</li>
+                                <li class="fragment">&lt;fn:join&gt; - text join</li>
+                                <li class="fragment">&lt;fn:trim&gt; - text trim</li>
+                            </ul>
+                        </small>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Custom Tags</h2>
+                        <p><span class="fragment">user-defined JSP language element, tag is converted to operations on an object called a tag handler</span></p>
+                        <ul>
+                            <li class="fragment">Eliminates the need of scriptlet tag</li>
+                            <li class="fragment">Separation of business logic from JSP</li>
+                            <li class="fragment">Re-usability</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Tag Handlers API</h2>
+                        <img width="400" height="400" data-src="https://www.javatpoint.com/images/jsp/customtag1.jpg" alt="jsp custom handler">
+                    </section>
+                    <section>
+                        <h2>Tag Handlers example</h2>
+                        <p><span class="fragment">inheriting TagSupport, overriding doStartTag()</span></p>
+                                                <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+package com.javatpoint.sonoo;  
+
+import java.util.Calendar;  
+import javax.servlet.jsp.JspException;  
+import javax.servlet.jsp.JspWriter;  
+import javax.servlet.jsp.tagext.TagSupport;  
+
+public class MyTagHandler extends TagSupport{  
+  
+public int doStartTag() throws JspException {  
+    JspWriter out=pageContext.getOut();//returns the instance of JspWriter  
+    try{  
+     out.print(Calendar.getInstance().getTime());//printing date and time using JspWriter  
+    }catch(Exception e){System.out.println(e);}  
+    return SKIP_BODY;//will not evaluate the body content of the tag  
+}  
+}                       
+					             </code></pre></span>
+                    </section>
+                    <section>
+                        <h2>Tag Handlers example #2</h2>
+                        <p><span class="fragment">tld - tag library descriptor file</span></p>
+                                                <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+<?xml version="1.0" encoding="ISO-8859-1" ?>  
+<!DOCTYPE taglib  
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"  
+    "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">  
+  
+<taglib>  
+  
+  <tlib-version>1.0</tlib-version>  
+  <jsp-version>1.2</jsp-version>  
+  <short-name>simple</short-name>  
+  <uri>http://tomcat.apache.org/example-taglib</uri>  
+  
+<tag>  
+<name>today</name>  
+<tag-class>com.javatpoint.sonoo.MyTagHandler</tag-class>  
+</tag>  
+</taglib>                        
+					             </code></pre></span>
+                    </section>
+                    <section>
+                        <h2>Tag Handlers example #3</h2>
+                        <p><span class="fragment">jsp file</span></p>
+                                                <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+<%@ taglib uri="WEB-INF/mytags.tld" prefix="m" %>  
+Current Date and Time is: &lt;m:today/&gt;                        
+					             </code></pre></span>
+                    </section>
+                    <section>
+                        <h2>Tag file</h2>
+                        <p><span class="fragment">a source file that contains a fragment of JSP code, translated into a tag handler and then compiled, needs tld</span></p>
+                    </section>
+                    <section>
+                        <h2>Simple Tag Handlers</h2>
+                        <p><span class="fragment">JSP 2.0 specification, extends SimpleTagSupport, override doTag()</span></p>
+                                                <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+package com.tutorialspoint;
+
+import javax.servlet.jsp.tagext.*;
+import javax.servlet.jsp.*;
+import java.io.*;
+
+public class HelloTag extends SimpleTagSupport {
+   public void doTag() throws JspException, IOException {
+      JspWriter out = getJspContext().getOut();
+      out.println("Hello Custom Tag!");
+   }
+}                       
+					             </code></pre></span>
+                    </section>
+                    <section>
+                        <h2>Simple Tag Handlers #2</h2>
+                        <p><span class="fragment">tld tag library descriptor file</span></p>
+                                                <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+<taglib>
+   <tlib-version>1.0</tlib-version>
+   <jsp-version>2.0</jsp-version>
+   <short-name>Example TLD</short-name>
+   
+   <tag>
+      <name>Hello</name>
+      <tag-class>com.tutorialspoint.HelloTag</tag-class>
+      <body-content>empty|scriptless</body-content>
+    <attribute>
+      <name>attribute_name1</name>
+      <required>false</required>
+      <type>java.util.Boolean</type>
+      <fragment>false</fragment>
+   </attribute>
+   </tag>
+</taglib>
+					             </code></pre></span>
+                    </section>
+                    <section>
+                        <h2>Simple Tag Handlers #3</h2>
+                        <p><span class="fragment">jsp file</span></p>
+                                                <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+&lt;%@ taglib prefix = "ex" uri = "WEB-INF/custom.tld"%&gt;
+
+&lt;html&gt;
+   &lt;head&gt;
+      &lt;title&gt;A sample custom tag&lt;/title&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;ex:Hello/&gt;
+   &lt;/body&gt;
+&lt;/html&gt;
+					             </code></pre></span>
+                    </section>
+                </section>
+
+                <section>
+					<h2>Expression Language (EL)</h2>
+                    <p><span class="fragment">simplifies accessibility of data stored in the Java Bean component, scopes, from JSP 2.0</span></p>
+                    <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;">${ expression }</code></pre></span>
+                    
+                    <ul>
+						<span class="fragment"><li>. - access a bean property or Map entry</li></span>
+                        <span class="fragment"><li>[] - access an array or List element</li></span>
+                        <span class="fragment"><li>arithmetic operations</li></span>
+                        <span class="fragment"><li>many implicit objects</li></span>
+                        <span class="fragment"><li>similar than js, no typecasting, implicit type conversions, double and single quotes are equivalent</li></span>
+					</ul>
+ 				</section>
+                
+                <section>
+					<h2>Unified Expression Language (UEL)</h2>
+                    <p><span class="fragment">JavaServer Faces needs EL, create UEL to use it, from JSP 2.1, EL 2.1</span></p>
+                    <span class="fragment">syntax<pre><code class="hljs" style="word-wrap: break-word;">${ expression }</code></pre></span>
+                    
+                    <ul>
+						<span class="fragment"><li>deferred expressions</li></span>
+                        <span class="fragment"><li>expressions set/get data</li></span>
+                        <span class="fragment"><li>method expressions</li></span>
+					</ul>
+ 				</section>
+
+                <section>
+					    <h2>Deployment</h2>
+                        <span class="fragment">
+                            <pre><code class="hljs" data-trim contenteditable>
+webapp
+|-WEB-INF
+|   |-web.xml
+|   |-lib
+|   |-classes
+|   |-tld
+|   |-tags
+|-static
+|-jsp                        
+					             </code></pre></span>
+                        <p><span class="fragment">zip as <span class="fragment highlight-green">w</span>eb <span class="fragment highlight-green">ar</span>chive package</span></p>
+			   </section>
+
+                               <section>
+					<h2>History</h2>
+                    <small>
+                    <table class="wikitable">
+<tbody><tr>
+<th>JSP version</th>
+<th>Released</th>
+<th>Specification</th>
+<th>Platform</th>
+<th>Supported library
+</th></tr>
+<tr>
+<td>JSP 2.3</td>
+<td>12 Jun, 2013</td>
+<td><a rel="nofollow" class="external text" href="https://jcp.org/en/jsr/detail?id=245">JSR 245</a></td>
+<td>Java EE 7 8</td>
+<td>EL-3.0, Servlet 4.0 
+</td></tr>
+<tr>
+<td>JSP 2.2</td>
+<td>10 Dec, 2009</td>
+<td><a rel="nofollow" class="external text" href="https://jcp.org/en/jsr/detail?id=245">JSR 245</a></td>
+<td>Java EE 6</td>
+<td>EL-2.2, Servlet 3.1 
+</td></tr>
+<tr>
+<td>JSP 2.1</td>
+<td>11 May, 2006</td>
+<td><a rel="nofollow" class="external text" href="https://jcp.org/en/jsr/detail?id=245">JSR 245</a></td>
+<td>Java EE 5</td>
+<td>EL-2.1, Servlet 3.0
+</td></tr>
+<tr>
+<td>JSP 2.0</td>
+<td>24 November, 2003</td>
+<td>JSR 152</td>
+<td>Java EE 1.4</td>
+<td>EL-2.0, Servlet 2.5
+</td></tr></tbody></table>
+</small>
 				</section>
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
+               <section style="text-align: left;">
+					<h1>Resources</h1>
 					<p>
-						- <a href="https://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+                        - <a href="https://docs.oracle.com/javaee/5/tutorial/doc">The Java EE 5 Tutorial</a> <br>
+						- <a href="https://www.tutorialspoint.com/servlets">Tutorialspoint Servlet Tutorial</a> <br>
+                        - <a href="https://www.tutorialspoint.com/jsp/">Tutorialspoint JSP Tutorial</a> <br>
+                        - <a href="http://shop.oreilly.com/product/9780596516680.do">Head First Servlets and JSP</a> <br>
 					</p>
 				</section>
 
@@ -440,8 +645,8 @@ Reveal.addEventListener( 'customevent', function() {
 					{ src: 'plugin/search/search.js', async: true },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
-                                        // NOTE! if you only use external markdown, make `condition: function(){ return 1; }`!
-                                        { src: 'plugin/timeline/reveal-timeline.js',  async: true, condition: function() { return !!document.querySelector( '[data-timeline]' ); } }
+                    // NOTE! if you only use external markdown, make `condition: function(){ return 1; }`!
+                    { src: 'plugin/timeline/reveal-timeline.js',  async: true, condition: function() { return !!document.querySelector( '[data-timeline]' ); } }
 				]
 			});
 
